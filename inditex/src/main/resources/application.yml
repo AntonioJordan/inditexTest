@@ -1,0 +1,26 @@
+
+# Config BD
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:ORCL
+    username: NORMAL_USER
+    password: 123
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+  jpa:
+    properties:
+      hibernate:
+        hql:
+          bulk_id_strategy:
+            global_temporary:
+              create_tables: false
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+      format_sql: true
+    database: oracle
+    database-platform: org.hibernate.dialect.OracleDialect
+    application:
+  name=inditex:
