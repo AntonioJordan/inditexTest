@@ -1,73 +1,70 @@
 
 
-1. Documentación relativa a la sociedad:
-   A. Certificado de reserva de denominación social del Registro Mercantil
-   Central. (Adjunto)
+En la base de datos de comercio electrónico de la compañía disponemos de la tabla PRICES que refleja el precio final
+(pvp) y la tarifa que aplica a un producto de una cadena entre unas fechas determinadas. A continuación se muestra 
+un ejemplo de la tabla con los campos relevantes.
 
-   B. Importe del capital social. Si las aportaciones son no dinerarias lista de los
-   bienes que se aportan junto con el valor individualizado de cada uno,
-   modelo, número de serie, etc. (3.000€)
 
-   C. Código CNAE de la actividad principal de la sociedad. (6833)
+PRICES
+-------
+BRAND_ID         START_DATE                                    END_DATE                        PRICE_LIST                   PRODUCT_ID  PRIORITY                 PRICE           CURR
 
-   D. Código CNAE del resto de actividades secundarias de la sociedad. (6810 + 6820 + 6832 + 6831)
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-   E. Código IAE tanto de la actividad principal como de las secundarias. (6833) + (6810 + 6820 + 6832 + 6831)
+1         2020-06-14-00.00.00                        2020-12-31-23.59.59                        1                        35455                0                        35.50            EUR
+1         2020-06-14-15.00.00                        2020-06-14-18.30.00                        2                        35455                1                        25.45            EUR
+1         2020-06-15-00.00.00                        2020-06-15-11.00.00                        3                        35455                1                        30.50            EUR
+1         2020-06-15-16.00.00                        2020-12-31-23.59.59                        4                        35455                1                        38.95            EUR
 
-   F. Domicilio social. En el caso de que la actividad se vaya a ejercer en un local
-   afecto a la actividad indicar: m2 , referencia catastral, dirección exacta y
-   porcentajes de afección a cada una de las actividades.
-   (Sin local)
 
-   G. Cuenta bancaria para domiciliar el importe de la inscripción del Registro
-   Mercantil.
-   IBAN --> ES18 1563 2626 3132 6529 4857
-   BIC --> NTSBESM1XXX
+Campos:
 
-2. Documentación relativa a los socios:
+    BRAND_ID: foreign key de la cadena del grupo (1 = ZARA).
+    START_DATE , END_DATE: rango de fechas en el que aplica el precio tarifa indicado.
+    PRICE_LIST: Identificador de la tarifa de precios aplicable.
+    PRODUCT_ID: Identificador código de producto.
+    PRIORITY: Desambiguador de aplicación de precios. Si dos tarifas coinciden en un rago de fechas se aplica la de mayor prioridad (mayor valor numérico).
+    PRICE: precio final de venta.
+    CURR: iso de la moneda.
 
-   A. DNI escaneado por delante y por detrás.
-   (Adjunto)
+Se pide:
 
-   B. Número de la seguridad social.
-   ss:46/11192189/78T
+Construir una aplicación/servicio en SpringBoot que provea una end point rest de consulta, tal que:
+Acepte como parámetros de 
+    Entrada: 
+        fecha de aplicación
+        identificador de producto
+        identificador de cadena.
 
-   C. Domicilio real (si no coincide con el del DNI).
+    Devuelva como datos de salida: 
+        identificador de producto
+        identificador de cadena
+        tarifa a aplicar
+        fechas de aplicación
+        precio final a aplicar.
 
-   D. Número de teléfono móvil y correo electrónico de cada uno de los socios.
-   Antonio Jordán Rodríguez (Único socio) --> casasjordanceo@gmail.com // +34 633621188
+Se debe utilizar una base de datos en memoria (tipo h2) e inicializar con los datos del ejemplo, (se pueden cambiar 
+el nombre de los campos y añadir otros nuevos si se quiere, elegir el tipo de dato que se considere adecuado para los 
+mismos).
 
-   E. Estado civil, régimen económico matrimonial, nombres completos y DNI
-   de los cónyuges. Se deberá aportar la pertinente escritura de
-   capitulaciones matrimoniales o cualquier otro documento que acredite el
-   régimen económico matrimonial o la situación del estado civil.
-   Soltero sin nada raro.
+Desarrollar unos test al endpoint rest que validen las siguientes peticiones al servicio con los datos del ejemplo:
 
-   F. Porcentajes de participación en el capital social de la empresa.
-   Antonio Jordán Rodríguez ---> 100% Acciones
+    Test 1: petición a las 10:00 del día 14 del producto 35455   para la brand 1 (ZARA)
+    Test 2: petición a las 16:00 del día 14 del producto 35455   para la brand 1 (ZARA)
+    Test 3: petición a las 21:00 del día 14 del producto 35455   para la brand 1 (ZARA)
+    Test 4: petición a las 10:00 del día 15 del producto 35455   para la brand 1 (ZARA)
+    Test 5: petición a las 21:00 del día 16 del producto 35455   para la brand 1 (ZARA)
 
-3. Documentación relativa al Administrador:
+Se valorará:
 
-   A. Indicar si el cargo como administrador es retribuido (importe fijo o
-   variable) o gratuito.
-   No es retribuido.
+    Diseño y construcción del servicio.
+    Calidad de Código.
+    Resultados correctos en los test.
 
-   B. Indicar si ya está dado de alta como autónomo o no. Tanto si está dado de
-   alta como autónomo o no: Base de cotización, mutua y cuenta bancaria
-   donde están o se quieren domiciliar las cuotas de autónomo. Indicar si
-   optará por la cobertura por accidente de trabajo y enfermedad
-   profesional.
-
-   No soy autónomo.
-
-   C. Administradorsolidario, individual o mancomunado.
-
-   D. Estimación de los rendimientos netos mensuales.
-   Ni idea.
-
-4. Datos relativos a la firma:
-   A. Día y hora o disponibilidad para reservar cita en la notaría para la firma de
-   la escritura de constitución.
-
-   Cualquier día a partir de las 17:00
-   Si esas horas no os viene bien, elegir un día entre las 9 y las 10 pero no me viene bien.
+El de la ETT:
+    --> Si usas java 11-17… usar streams, optionals y localdatetime
+    --> Uso de advice para manejo de excepciones
+    --> Inyección de dependencias por constructor
+    --> Usar builders o constructores en lugar de setters
+    --> Tests de sistema con diferentes casuísticas y significativos
+    --> Aplicar testing unitarios y de integración
