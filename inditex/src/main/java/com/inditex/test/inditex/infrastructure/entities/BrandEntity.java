@@ -14,7 +14,10 @@ public class BrandEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String brandName;
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "address")
     private String address;
 
     @OneToMany(mappedBy = "brand", cascade = CascadeType.ALL)

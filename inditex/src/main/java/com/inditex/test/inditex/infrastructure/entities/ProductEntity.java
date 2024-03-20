@@ -14,7 +14,10 @@ public class ProductEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String productName;
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "description")
     private String description;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
