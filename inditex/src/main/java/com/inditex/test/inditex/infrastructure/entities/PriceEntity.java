@@ -1,6 +1,7 @@
 package com.inditex.test.inditex.infrastructure.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -15,21 +16,27 @@ public class PriceEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     @Column(name = "start_date")
     private LocalDateTime startDate;
 
+    @NotNull
     @Column(name = "end_date")
     private LocalDateTime endDate;
 
+    @NotNull
     @Column(name = "price_list")
     private Integer priceList;
 
+    @NotNull
     @Column(name = "priority")
     private Integer priority;
 
-    @Column(name = "price")
+    @NotNull
+    @Column(name = "amount")
     private BigDecimal amount;
 
+    @NotNull
     @Column(name = "curr")
     private String currency;
 
@@ -44,5 +51,3 @@ public class PriceEntity {
 
 //Todo Modo Lazy load aplicar reactividad desde aquí
 //Todo Validaciones
-
-//Price on bd must be named Amount

@@ -1,6 +1,8 @@
 package com.inditex.test.inditex.infrastructure.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 import java.util.List;
@@ -14,9 +16,13 @@ public class BrandEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
+    @Size(max = 75)
     @Column(name = "name")
     private String name;
 
+    @NotBlank
+    @Size(max = 150)
     @Column(name = "address")
     private String address;
 
