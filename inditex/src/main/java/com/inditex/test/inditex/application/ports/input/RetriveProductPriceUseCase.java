@@ -1,6 +1,5 @@
 package com.inditex.test.inditex.application.ports.input;
 
-import com.inditex.test.inditex.domain.models.Price;
 import com.inditex.test.inditex.infrastructure.controllers.dto.requestdtos.PriceResponseDto;
 
 import java.time.LocalDateTime;

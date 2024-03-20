@@ -66,5 +66,6 @@ El de la ETT:
     --> Uso de advice para manejo de excepciones
     --> Inyección de dependencias por constructor
     --> Usar builders o constructores en lugar de setters
+
     --> Tests de sistema con diferentes casuísticas y significativos
     --> Aplicar testing unitarios y de integración

@@ -29,10 +29,6 @@ public class PriceController {
 
         Optional<PriceResponseDto> priceDto = productPriceService.getPrice(productId, brandId, date);
 
-        if (priceDto != null) {
-            return ResponseEntity.ok(priceDto);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+        return priceDto.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 }
