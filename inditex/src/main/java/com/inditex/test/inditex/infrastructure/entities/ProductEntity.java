@@ -24,5 +24,3 @@ public class ProductEntity {
     private List<PriceEntity> prices;
 
 }
-//Todo Modo Lazy load aplicar reactividad desde aquí
-//Todo Validaciones

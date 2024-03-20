@@ -48,6 +48,3 @@ public class PriceEntity {
     @JoinColumn(name = "product_id")
     private ProductEntity product;
 }
-
-//Todo Modo Lazy load aplicar reactividad desde aquí
-//Todo Validaciones

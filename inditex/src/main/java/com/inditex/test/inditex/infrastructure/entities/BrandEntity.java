@@ -29,6 +29,3 @@ public class BrandEntity {
     @OneToMany(mappedBy = "brand", cascade = CascadeType.ALL)
     private List<PriceEntity> prices;
 }
-
-//Todo Modo Lazy load aplicar reactividad desde aquí
-//Todo Validaciones

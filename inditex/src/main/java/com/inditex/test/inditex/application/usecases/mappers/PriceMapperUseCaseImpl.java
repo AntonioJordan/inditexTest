@@ -20,6 +20,3 @@ public class PriceMapperUseCaseImpl implements PriceMapperUseCase {
                 .build();
     }
 }
-
-//Todo, no me fío de los campos, parece que hay que hacer un calculo más profundo con el precio y los
-//campos puede que no sean esos.
