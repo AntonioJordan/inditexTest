@@ -1,7 +1,7 @@
 package com.inditex.test.inditex.application.usecases.mappers;
 
 import com.inditex.test.inditex.application.ports.input.PriceMapperUseCase;
-import com.inditex.test.inditex.infrastructure.controllers.dto.requestdtos.PriceResponseDto;
+import com.inditex.test.inditex.infrastructure.controllers.dto.responsedtos.PriceResponseDto;
 import com.inditex.test.inditex.infrastructure.entities.PriceEntity;
 import org.springframework.stereotype.Component;
 

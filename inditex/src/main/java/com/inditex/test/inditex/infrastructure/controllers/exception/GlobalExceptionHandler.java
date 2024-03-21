@@ -1,6 +1,6 @@
 package com.inditex.test.inditex.infrastructure.controllers.exception;
 
-import com.inditex.test.inditex.infrastructure.controllers.dto.requestdtos.PriceResponseDto;
+import com.inditex.test.inditex.infrastructure.controllers.dto.responsedtos.PriceResponseDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

@@ -2,7 +2,7 @@ package com.inditex.test.inditex.application.usecases;
 
 import com.inditex.test.inditex.application.ports.input.PriceMapperUseCase;
 import com.inditex.test.inditex.application.ports.input.RetriveProductPriceUseCase;
-import com.inditex.test.inditex.infrastructure.controllers.dto.requestdtos.PriceResponseDto;
+import com.inditex.test.inditex.infrastructure.controllers.dto.responsedtos.PriceResponseDto;
 import com.inditex.test.inditex.infrastructure.entities.PriceEntity;
 import com.inditex.test.inditex.infrastructure.repositories.PriceRepository;
 import org.springframework.context.annotation.Primary;

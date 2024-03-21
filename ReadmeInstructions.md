@@ -69,3 +69,10 @@ El de la ETT:
 
     --> Tests de sistema con diferentes casuísticas y significativos
     --> Aplicar testing unitarios y de integración
+
+
+Test de Repositorios: Verificar la correcta interacción con la capa de persistencia.
+Test de Servicios: Validar la lógica de negocio y la interacción con los repositorios.
+Test de Adaptadores de Entrada: Probar la integración con los controladores REST o cualquier otra interfaz de entrada.
+Test de Adaptadores de Salida: Asegurar la integración con servicios externos, como APIs o bases de datos externas.
+Test de Componentes de Infraestructura: Verificar la correcta configuración y funcionamiento de los componentes de infraestructura, como configuraciones de Spring.

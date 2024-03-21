@@ -1,4 +1,4 @@
-package com.inditex.test.inditex.infrastructure.controllers.dto.requestdtos;
+package com.inditex.test.inditex.infrastructure.controllers.dto.responsedtos;
 
 import lombok.Builder;
 import lombok.Data;
